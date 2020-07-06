@@ -7,7 +7,8 @@ defmodule AshKaffy.MixProject do
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -15,6 +16,12 @@ defmodule AshKaffy.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  defp aliases do
+    [
+      "ash.formatter": "ash.formatter --extensions AshKaffy.Api,AshKaffy.Resource"
     ]
   end
 

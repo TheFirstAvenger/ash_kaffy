@@ -88,7 +88,11 @@ defmodule AshKaffy.Api do
          name: pretty_name,
          resources:
            Enum.map(resources, fn resource_reference ->
-             {resource_reference.name, [schema: resource_reference.resource]}
+             {resource_reference.name,
+              [
+                schema: resource_reference.resource,
+                admin: AshKaffy.Resource.admin_module(resource_reference.resource)
+              ]}
            end)
        ]}
     end)
